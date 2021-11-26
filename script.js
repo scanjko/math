@@ -1,44 +1,78 @@
 
-
-function randNum(min,max){
-
-    min = Math.ceil(min);
-    max = Math.ceil(max);
-
-    return Math.ceil(Math.random() *  (max - min) + min); 
+const Num = {
+    operation :'+',
+    firstNumMin :0,
+    firstNumMax:0,
+    secondNumMin :0,
+    secondNumMax:0,
+    firstNumVal:0,
+    secondNumVal:0,
+    userInput:0,
+    result: function(){
+        return this.firstNum + this.secondNum;
+    }
 
 }
 
-
-let randButton = document.querySelector('.btn-rand');
-let firstNum = document.querySelector('.first-num');
-let secondNum = document.querySelector('.second-num');
-let select = document.querySelectorAll('select');
-let resultObj = {
-    operation:'',
-    rangeFirstNum:'',
-    rangeSecondNum:'',
-    firstNum:0,
-    secondNum:0,
-    result:0,
+function randNum(min,max){
+    min = Math.ceil(min);
+    max = Math.ceil(max);
+    return Math.ceil(Math.random() *  (max - min) + min); 
 
 };
+function updateSelection(num){
+    const elClass = num.classList.value;
+    if (elClass == 'first-num'){
+        let rand = randNum(Num.firstNumMin,Num.firstNumMax);
+        firstNum.textContent = rand;
+        Num.firstNumVal =rand;
+
+    }
+    if (elClass == 'second-num'){
+        let rand = randNum(Num.secondNumMin,Num.secondNumMax);
+        secondNum.textContent = rand;
+        Num.secondNumVal = rand;
+
+    }
+
+}
+
+let nextButton = document.querySelector('.btn-next');
+let checkButton = document.querySelector('.btn-check');
+let firstNum = document.querySelector('.first-num');
+let secondNum = document.querySelector('.second-num');
+let select1 = document.querySelector('.first');
+let select2 = document.querySelector('.second');
+let userInput = document.querySelector('.input-num');
 let resultsArray = [];
 
+select1.addEventListener('change', (e)=>{
+    const numRange = e.target.value.split('-');
 
-randButton.addEventListener('click', () => {
-    
-    firstNum.textContent = randNum(20,30);
-    secondNum.textContent = randNum(10,20);
-
+    Num.firstNumMin = numRange[0];
+    Num.firstNumMax = numRange[1];
+    updateSelection(firstNum);
 });
 
-select.forEach(element => {
-    element.addEventListener('change', (e) => {
+select2.addEventListener('change', (e)=>{
+    const numRange = e.target.value.split('-');
 
-        console.log(e.target.value)
-    })
+    Num.secondNumMin = numRange[0];
+    Num.secondNumMax = numRange[1];
+    updateSelection(secondNum);
 });
+
+nextButton.addEventListener('click', (e)=>{
+
+  
+    Num.userInput = userInput.value;
+    Num.result();
+    resultsArray.push(Num)
+    console.log(resultsArray)
+});
+
+
+
 
 
 /*toDO: 

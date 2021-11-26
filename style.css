@@ -22,11 +22,15 @@ div .second-number .title {
   width: 100px;
   height: 40px;
   padding: 10px;
+  font-size: 18px;
 }
 .container.calculation {
   display: block;
 }
 .input-num {
+  display: inline-block;
   width: 40px;
   height: 40px;
+  font-size: 20px;
+  vertical-align: middle;
 }
