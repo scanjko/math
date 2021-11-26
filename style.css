@@ -1,0 +1,32 @@
+p,
+div {
+  display: inline-block;
+  font-size: 50px;
+}
+
+.control-block {
+  display: block;
+}
+
+div .first-number .title,
+div .second-number .title {
+  font-size: 1.5rem;
+}
+.first-number,
+.second-number {
+  margin-right: 20px;
+}
+.first-number select,
+.second-number select {
+  display: block;
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+}
+.container.calculation {
+  display: block;
+}
+.input-num {
+  width: 40px;
+  height: 40px;
+}
