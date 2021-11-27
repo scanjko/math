@@ -8,8 +8,9 @@ const Num = {
     firstNumVal:0,
     secondNumVal:0,
     userInput:0,
+    trueResult:0,
     result: function(){
-        return this.firstNum + this.secondNum;
+        this.trueResult =  this.firstNumVal + this.secondNumVal;
     }
 
 }
@@ -64,12 +65,42 @@ select2.addEventListener('change', (e)=>{
 
 nextButton.addEventListener('click', (e)=>{
 
-  
+  if(userInput.value == ""){
+      alert('Upišite rezultat!')
+      return;
+  }
     Num.userInput = userInput.value;
     Num.result();
-    resultsArray.push(Num)
-    console.log(resultsArray)
+    resultsArray.push({...Num})
+    
+    updateSelection(firstNum);
+    updateSelection(secondNum);
+    userInput.value ='';
+    
 });
+
+checkButton.addEventListener('click', (e)=>{
+    for(const r in resultsArray){
+        console.log(resultsArray[r].secondNumVal)
+        let tag = document.createElement('div');
+        let text = document.createTextNode(
+            resultsArray[r].firstNumVal + ' + '
+             + resultsArray[r].secondNumVal + ' = '
+              + resultsArray[r].userInput + '(' + resultsArray[r].trueResult +  ')' );
+
+        tag.appendChild(text);
+        if(resultsArray[r].userInput == resultsArray[r].trueResult){
+            tag.className = 'result-true';
+        }else{
+            tag.className = 'result-false';
+        }
+        
+
+        let el = document.querySelector('.display-results');
+        el.appendChild(tag);
+    }
+    
+})
 
 
 

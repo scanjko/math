@@ -34,3 +34,14 @@ div .second-number .title {
   font-size: 20px;
   vertical-align: middle;
 }
+.display-results div {
+  font-size: 15px;
+  display: block;
+}
+
+.result-true {
+  color: green;
+}
+.result-false {
+  color: rgb(172, 48, 48);
+}
