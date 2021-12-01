@@ -45,6 +45,8 @@ let secondNum = document.querySelector('.second-num');
 let select1 = document.querySelector('.first');
 let select2 = document.querySelector('.second');
 let userInput = document.querySelector('.input-num');
+let counterDisplay = document.querySelector('.counter-display');
+
 let resultsArray = [];
 
 select1.addEventListener('change', (e)=>{
@@ -76,7 +78,8 @@ nextButton.addEventListener('click', (e)=>{
     updateSelection(firstNum);
     updateSelection(secondNum);
     userInput.value ='';
-    
+    console.log(counterDisplay)
+    counterDisplay.textContent = resultsArray.length;
 });
 
 checkButton.addEventListener('click', (e)=>{
@@ -98,6 +101,7 @@ checkButton.addEventListener('click', (e)=>{
 
         let el = document.querySelector('.display-results');
         el.appendChild(tag);
+        resultsArray = [];
     }
     
 })

@@ -45,3 +45,7 @@ div .second-number .title {
 .result-false {
   color: rgb(172, 48, 48);
 }
+.counter-display {
+  margin: 0;
+  font-size: 30px;
+}
