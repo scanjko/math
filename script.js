@@ -101,8 +101,9 @@ checkButton.addEventListener('click', (e)=>{
 
         let el = document.querySelector('.display-results');
         el.appendChild(tag);
-        resultsArray = [];
+        
     }
+    resultsArray = [];
     
 })
 
